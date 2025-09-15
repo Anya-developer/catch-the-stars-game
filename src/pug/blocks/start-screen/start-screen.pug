@@ -1,0 +1,17 @@
+mixin start-screen
+  .start-screen 
+    .fon
+    .container 
+      .counter 
+        span.counter__item Звезды: 
+        span.counter__number 0
+      .offer
+        h1.start-screen__title Catch the stars
+        +button("Cтарт")(class="start-button")
+      .space-ship 
+        .space-ship__img
+          img(src="src/images/space-ship.png", alt="") 
+      .stars
+      audio(id="catch-sound" src="src/audio/bell-sound.mp3" preload="auto")
+      audio(id="pop-sound" src="src/audio/pop.mp3" preload="auto")
+        

@@ -1,0 +1,262 @@
+.start-screen{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  &__image{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 100% 100%; 
+    } 
+  }
+
+  &__title{
+    color: #fff;
+    font-size: rem(80px);
+    text-align: center;
+    letter-spacing: 0.7;
+    @media screen and (max-width: 1280px) {
+      font-size: rem(60px);
+    }
+  }
+}
+
+.fon {
+  position: absolute;
+  z-index: -3;
+  height: 100vh;
+  width: 100%;
+  background-color: #000029;
+}
+
+.fon-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 4);
+  border-radius: 100%; 
+  background-color: white;
+  animation: blink 3s infinite;
+}
+
+.container{
+  position: relative;
+  flex: 1;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0px rem(100px);
+  @media screen and (max-width: 1280px) {
+    margin: 0px rem(60px);
+  } 
+  @media screen and (max-width: 768px) {
+    width: rem(10px);
+  } 
+}
+
+.offer{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 4; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  height: auto;
+  margin: 0 auto;
+  transition: 3s;
+}
+
+.counter {
+  display: flex;
+  justify-content: right;
+  gap: 20px;
+  font-family: "IBM Plex Sans";
+  font-size: 40px;
+  color: #ffff;
+  &--hidden{
+    display: none;
+  }
+  &__number{
+    color: #f6ff7b;
+    font-weight: 700;
+    font-size: 45px;  
+  }
+}
+
+.star{
+  position: absolute;
+  top: -200px;
+  z-index: 5;
+  height: auto;
+  animation-name: star-fall;
+  animation-timing-function: ease-in-out;
+  will-change: transform;
+  &::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40%;
+    width: 40%;
+    height: 2px;
+    margin: 0 auto;
+    animation: growing-up 5s ease-in-out forwards;
+    background: var(--background);
+    filter: blur(4px);
+  }
+
+  svg{
+    width: 100%;
+    height: auto;
+    filter: blur(2px);
+  }
+
+  &--pink{
+    --background: linear-gradient(0deg, #fb9ee5, transparent);
+    svg{
+      color: #fb9ee5;
+      animation: glowing-pink 10s ease-in-out forwards;
+    }
+  }
+
+  &--yellow{
+    --background: linear-gradient(0deg, #fafaaa, transparent);
+    svg{
+      color: #fafaaa;
+      animation: glowing-yellow 8s ease-in-out forwards;
+    }
+  }
+
+  &--blue{
+    --background: linear-gradient(0deg, #C3EFFF, transparent);
+    svg{
+      color: #C3EFFF;
+      animation: glowing-blue 8s ease-in-out forwards;
+    }
+  }
+}
+
+.space-ship{
+  position: relative;
+  z-index: 6;
+  width: rem(300px);
+  transition: 4s;
+  &::after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    width: 40%;
+    height: 80px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #a0eaff, transparent);
+    filter: blur(4px); 
+    animation: ship-move-up 1s ease-in-out infinite alternate; 
+  }
+  &--hidden{
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: rem(200px);
+  }
+}
+
+.ship{
+  position: absolute;
+  left: -200px;
+  width: 100px;
+  height: auto;
+  z-index: -2;
+  animation-name: ship-fly;
+  animation-timing-function: ease-in-out;
+  animation-duration: 15s;
+  will-change: transform;
+}
+
+@keyframes blink {
+  0%   { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@keyframes ship-fly {
+  0% {
+    left: -200px;  
+  }
+
+  100% {
+    left: 100%;   
+  }
+}
+
+@keyframes growing-up {
+  from {
+    height: 2px;
+  }
+  to {
+    height: 150px;
+  }
+}
+
+@keyframes glowing-pink {
+  from {
+    filter: blur(1px) drop-shadow(3px 3px 20px #ff4da6)
+  }
+  to {
+    filter: blur(1px) drop-shadow(0 0 10px #fdc4fd) drop-shadow(0 0 20px #ff9cff) drop-shadow(0 0 20px #f0f);
+  }
+}
+
+@keyframes glowing-yellow {
+  from {
+    filter: blur(1px) drop-shadow(3px 3px 10px #f4fcbe)
+  }
+  to {
+    filter: blur(1px) drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px #f9ffcb) drop-shadow(0 0 20px #f1ff84);
+  }
+}
+
+@keyframes glowing-blue {
+  from {
+    filter: blur(1px) drop-shadow(3px 3px 10px #C3EFFF)
+  }
+  to {
+    filter: blur(1px) drop-shadow(0 0 10px #fff) drop-shadow(0 0 20px #C3EFFF) drop-shadow(0 0 20px #AAE8FF);
+  }
+}
+
+@keyframes star-fall {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(1000px);   
+  }
+}
+
+@keyframes ship-move-up {
+  0% {
+    bottom: -10px;
+  }
+
+  100% {
+    bottom: -30px;    
+  }
+}
+
+.stop-animation{
+  animation: none;
+}
