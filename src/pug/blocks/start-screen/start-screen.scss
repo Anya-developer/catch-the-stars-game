@@ -1,7 +1,7 @@
 .start-screen{
   display: flex;
-  height: 100%;
   justify-content: center;
+  height: 100vh;
   &__image{
     position: absolute;
     top: 0;
@@ -19,7 +19,7 @@
     color: #fff;
     font-size: rem(80px);
     text-align: center;
-    letter-spacing: 0.7;
+    letter-spacing: 1.5px;
     @media screen and (max-width: 1280px) {
       font-size: rem(60px);
     }
@@ -46,7 +46,6 @@
 
 .container{
   position: relative;
-  flex: 1;
   max-width: 100%;
   width: 100%;
   height: 100%;
@@ -55,7 +54,7 @@
     margin: 0px rem(60px);
   } 
   @media screen and (max-width: 768px) {
-    width: rem(10px);
+    margin: 0px rem(10px);
   } 
 }
 
@@ -79,9 +78,11 @@
 .counter {
   display: flex;
   justify-content: right;
+  align-items: center;
   gap: 20px;
+  padding-top: 20px;
   font-family: "IBM Plex Sans";
-  font-size: 40px;
+  font-size: rem(40px);
   color: #ffff;
   &--hidden{
     display: none;
@@ -89,7 +90,7 @@
   &__number{
     color: #f6ff7b;
     font-weight: 700;
-    font-size: 45px;  
+    font-size: rem(45px);  
   }
 }
 
@@ -180,7 +181,7 @@
   height: auto;
   z-index: -2;
   animation-name: ship-fly;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in;
   animation-duration: 15s;
   will-change: transform;
 }

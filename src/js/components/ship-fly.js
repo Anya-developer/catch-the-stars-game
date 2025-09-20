@@ -8,7 +8,7 @@ const shipFly = () => {
 
   setInterval(() => {
     const ship = document.createElement('div');
-    ship.innerHTML = `<img src="src/images/small-ship.png", alt="">`;
+    ship.innerHTML = `<img src="./images/small-ship.png", alt="">`;
     ship.classList.add("ship");
     ship.style.bottom = Math.random() * (window.innerHeight) + 'px';
     ship.style.width = getRndInteger(50, 90) + 'px';

@@ -9,6 +9,7 @@ const starsFall = () => {
   let startButton = document.querySelector('.start-button');
   let restartButton = document.querySelector('.restart-button');
   let finishGameBlock = document.querySelector('.finish-screen');
+  let finalTitle = document.querySelector('.finish-screen__title');
   let score = 0;
   let starsInterval;
   let starsArr = [];
@@ -84,6 +85,11 @@ const starsFall = () => {
           popSound.currentTime = 0;
           popSound.play();
           finalScore.innerText = `Счет: ${score}`;
+          if (score<=5) {
+            finalTitle.innerText = "Я так понимаю, это был разогрев?";   
+          }else{
+            finalTitle.innerText = "Так держать, космический странник!!!";
+          }
           finishGameBlock.classList.add("finish-screen--open");
           gameOver();
           break;
