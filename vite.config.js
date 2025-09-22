@@ -9,7 +9,7 @@ const outDir = resolve(path.dirname(url.fileURLToPath(import.meta.url)), 'dist')
 
 export default defineConfig({
   root,
-  base: '/catch-the-stars-game/',
+  base: './',
   clearScreen: false,
   build: {
     outDir,
